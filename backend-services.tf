@@ -33,7 +33,7 @@ resource "aws_elasticache_cluster" "vprofile-cache" {
   engine               = "memcached"
   node_type            = "cache.t3.micro"
   num_cache_nodes      = 1
-  parameter_group_name = "my-memcached-parameter"
+  parameter_group_name = aws_elasticache_parameter_group.my-memcached-parameter.name
   port                 = 11211
   security_group_ids   = [aws_security_group.vprofile-backend-sg.id]
   subnet_group_name    = aws_elasticache_subnet_group.vprofile-ecache-subgrp.name
@@ -41,7 +41,7 @@ resource "aws_elasticache_cluster" "vprofile-cache" {
 
 resource "aws_elasticache_parameter_group" "my-memcached-parameter" {
   name        = "my-memcached-parameter"
-  family      = "memcached1.5"
+  family      = "memcached1.6"
   description = "My Memcached Parameter Group"
 }
 
