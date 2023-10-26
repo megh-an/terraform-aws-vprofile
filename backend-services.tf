@@ -39,6 +39,12 @@ resource "aws_elasticache_cluster" "vprofile-cache" {
   subnet_group_name    = aws_elasticache_subnet_group.vprofile-ecache-subgrp.name
 }
 
+resource "aws_elasticache_parameter_group" "my-memcached-parameter" {
+  name        = "my-memcached-parameter"
+  family      = "memcached1.5"
+  description = "My Memcached Parameter Group"
+}
+
 resource "aws_mq_broker" "vprofile-rmq" {
   broker_name        = "vprofile-rmq"
   engine_type        = "ActiveMQ"
