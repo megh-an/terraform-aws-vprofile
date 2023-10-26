@@ -70,6 +70,7 @@ resource "aws_security_group" "vprofile-backend-sg" {
     security_groups = [aws_security_group.vprofile-prod-sg.id]
   }
 }
+
 resource "aws_security_group_rule" "sec_group_allow_itself" {
   type                     = "ingress"
   from_port                = 0
