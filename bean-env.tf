@@ -1,5 +1,6 @@
 resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   name                = "vprofile-bean-prod"
+  Environment_id      = "e-jtyitpiapi"
   application         = aws_elastic_beanstalk_application.vprofile-prod.name
   solution_stack_name = "64bit Amazon Linux 2 v4.3.13 running Tomcat 8.5 Corretto 11"
   cname_prefix        = "vprofile-bean-prod-domain"
@@ -121,7 +122,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "SecurityGroups"
-    value     = "sg-09e3a91a32631e5be"
+    value     = "sg-0bec0c87cb05e4a6e"
   }
 
   setting {
