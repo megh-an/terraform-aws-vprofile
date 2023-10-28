@@ -1,7 +1,7 @@
 resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   name                = "vprofile-prod-env"
   application         = aws_elastic_beanstalk_application.vprofile-prod.name
-  solution_stack_name = "64bit Amazon Linux 2 v5.5.0 running Tomcat 10 Corretto 17"
+  solution_stack_name = "64bit Amazon Linux 2 v4.3.13 running Tomcat 8.5 Corretto 11"
   cname_prefix        = "vprofile-bean-prod-domain"
   setting {
     name      = "VPCId"
@@ -11,7 +11,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "IamInstanceProfile"
-    value     = "aws-elasticbeanstalk-ec2-role"
+    value     = "elastic-beanstalk-role"
   }
   setting {
     namespace = "aws:ec2:vpc"
