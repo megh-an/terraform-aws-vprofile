@@ -121,7 +121,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "SecurityGroups"
-    value     = "sg-0d360b6467e322cf9"
+    value     = "aws_security_group.vprofile-prod-sg.id"
   }
 
   setting {
